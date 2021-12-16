@@ -90,7 +90,7 @@ Eingabe:
 1 1
 ```
 
-Ausgbe:
+Ausgabe:
 
 ```
 -
