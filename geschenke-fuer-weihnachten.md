@@ -36,7 +36,7 @@ Der Weihnachtsmann gibt das Jahr der Anlieferung und die Lieferzeit in Tagen in 
 
 
 
-Beispiel 1
+Beispiel
 
 Eingabe
 ```
@@ -48,4 +48,57 @@ Ausgabe
 20.12.2021
 ```
 
+## User story #2
 
+Das einzelne Prüfen der Versanddaten pro Fabrik wird dem Weihnachtsmann zu viel. Als Weihnachstmann möchte er eine Liste der Fabriken eingeben können und die Bestellungen mit ihren Bestelldaten ausgeben können.
+
+Pro Fabrik möchte der Weihnachtsmann deren maximale Liefermenge, die Produktionszeit in Kalendertagen und die Lieferzeit in Arbeitstagen eingeben können. Lieder kann die Fabrik den Auftrag nicht annehmen, wenn die Bestellmenge die Liefermenge überschreiten.
+
+Als Ergebnis pro Fabrik das Bestelldatum mit der geforderten Bestellmenge erhalten. Hierbei muss das Bestelldatum einen Tag vor der ersten Produktionstag liegen.
+
+Eingabe
+
+```
+JJJJ  - Weihnachtsjahr
+X - Spielzeugmenge die im Weihnachtsjahr JJJJ am 24.12 benötigt wird
+N - Anzahl der Fabriken
+Liefermenge_1 Liefermenge_2 ... Liefermenge_N - Liefermengen getrennt durch ein <SPACE>
+Produtionszeit_1 Produktionszeit_2 Produktionszeit_N - Produktionszeiten getrennt durch ein <SPACE>
+Lieferzeit_1 Lieferzeit_2 ... Lieferzeit_N - Lieferzeiten getrennt durch ein <SPACE>
+```
+
+Augabe
+
+```
+Bestellmenge_Fabrik_1 Bestelldatum_Fabrik_1 - Ergebnis für Fabrik 1 oder "-" falls keine Bestellung aufgegeben wird
+Bestellmenge_Fabrik_2 Bestelldatum_Fabrik_2 - Ergebnis für Fabrik 1 oder "-" falls keine Bestellung aufgegeben wird
+...
+Bestellmenge_Fabrik_N Bestelldatum_Fabrik_N - Ergebnis für Fabrik 1 oder "-" falls keine Bestellung aufgegeben wird
+```
+
+
+Beispiel:
+
+Eingabe: 
+
+```
+2021
+2
+2
+1 2
+1 1
+1 1
+```
+
+Ausgbe:
+
+```
+-
+2 21.12.2021
+```
+
+Erklärung:
+
+Fabrik_1 kann nicht beauftragt werden, da die Bestellmenge deren Liefermenge überschreitet.
+
+Fabrik_2 kann beauftragt werden, da die Bestellmenge durch deren Liefermenge abgedeckt werden kann. Der 24.12.2021 ist ein Freitag. So muss die Lieferung am Do. 23.12 als letztem Gildenarbeitstag vor Weihnachten erfolgen. Die Produktion findet am 22.12. statt und die Bestellung von 2 Spielzeugen muss somit am 21.12. erfolgen.
